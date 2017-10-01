@@ -29,24 +29,25 @@ class MainActivity : AppCompatActivity() {
         var count: Int = Integer.parseInt(countString)
         count++
         // this part should show the value that we have incremented
-        textView.text = count.toString();
+        textView.text = count.toString()
     }
 
 //random button
     fun randomMe (view: View) {
-        // Create an Intent to start the second activity
+        // intent
         val randomIntent = Intent(this, SecondActivity::class.java)
-
-        // Get the current value of the text view.
         val countString = textView.text.toString()
-
-        // Convert the count to an int
         val count = Integer.parseInt(countString)
-
-        // Add the count to the extras for the Intent.
         randomIntent.putExtra(SecondActivity.TOTAL_COUNT, count)
-
-        // Start the new activity.
         startActivity(randomIntent)
+    }
+
+    fun resetMe (view: View) {
+       // reset the counter to 0
+        val countString = textView.text.toString()
+        // all we are doing is creating an int of 0
+        val count: Int = 0
+        textView.text = count.toString()
+
     }
 }
